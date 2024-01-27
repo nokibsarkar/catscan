@@ -3,7 +3,7 @@ import re, sqlite3, time, os
 from queue import Queue
 WAIT_INTERVAL_IN_SECONDS = 1
 words = ["Madeira", "Funchal"] # List of words to be searched
-
+INITIAL_CATEGORIES = ["Category:Files needing categories"] # List of categories to be searched
 
 
 
@@ -94,8 +94,8 @@ def main():
         db.executescript(SQL_INIT)
         db.commit()
     session = Session()
-    # categories_to_be_searched.put("Category:Files needing categories")
-    categories_to_be_searched.put("Category:Madeira Airport")
+    for cat in INITIAL_CATEGORIES:
+        categories_to_be_searched.put(cat)
     search_iteratively(categories_to_be_searched, session)
     db.close()
     
