@@ -37,7 +37,7 @@ def go_thorugh_category(cat : str, queue : Queue,  session : Session):
         "prop": "revisions",
         "generator": "categorymembers",
         "formatversion": "2",
-        "rvprop": "ids|timestamp|flags|comment|user|content",
+        "rvprop": "content",
         "rvslots": "main",
         "gcmtitle": cat
     }
